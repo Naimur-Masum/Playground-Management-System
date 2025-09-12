@@ -13,8 +13,7 @@ function validateLogin() {
     }
 
     if (!emailReg.test(email)) {
-        /*console.log("here");*/
-        /*alert("Please enter a valid email.");*/
+        
         emailErr.innerHTML="Please provide an userName";
         emailErr.style.color="red";
 

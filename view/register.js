@@ -1,3 +1,5 @@
+let emailReg=/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
 function validateRegister() {
     let name = document.getElementById("regName").value;
     let email = document.getElementById("regEmail").value;
@@ -9,7 +11,7 @@ function validateRegister() {
         return false;
     }
 
-    if (!email.includes("@") || !email.includes(".")) {
+    if (!emailReg.test(email)) {
         alert("Please enter a valid email.");
         return false;
     }

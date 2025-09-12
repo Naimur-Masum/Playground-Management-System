@@ -3,7 +3,7 @@
 <head>
     <title>Registration Page</title>
     <link rel="stylesheet" href="style.css">
-    <script src="register.js"></script>
+    
 </head>
 <body>
     <div class="container">
@@ -13,7 +13,7 @@
             <input type="text" id="regName" placeholder="Enter name">
 
             <label>Email:</label>
-            <input type="email" id="regEmail" placeholder="Enter email">
+            <input type="text" id="regEmail" placeholder="Enter email">
 
             <label>Password:</label>
             <input type="password" id="regPassword" placeholder="Enter password">
@@ -21,11 +21,12 @@
             <label>Confirm Password:</label>
             <input type="password" id="regConfirm" placeholder="Confirm password">
 
-            <button type="submit">Register</button>
+            <input type="submit" value="submit">submit
         </form>
         <div class="link">
-            <p>Already have an account? <a href="login.html">Login here</a></p>
+            <p>Already have an account? <a href="login.php">Login here</a></p>
         </div>
     </div>
+    <script src="register.js"></script>
 </body>
 </html>
