@@ -1,0 +1,72 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+}
+
+.container {
+    width: 300px;
+    margin: 100px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 5px gray;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+input {
+    width: 100%;
+
+#customer{
+    display:inline;
+}
+
+input {
+    width:100%;
+    padding: 8px;
+    margin: 8px 0;
+    border: 1px solid gray;
+    border-radius: 4px;
+
+}
+
+   
+}
+
+/* Make radio buttons + labels inline */
+
+
+button {
+    width: 100%;
+    padding: 8px;
+    background: blue;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type="radio"] {
+    width: auto;
+    margin-right: 5px;
+}
+
+button:hover {
+    background: darkblue;
+}
+
+.link {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.link a {
+    text-decoration: none;
+    color: blue;
+}
+
