@@ -41,6 +41,9 @@
 
             else
             {
+                setcookie("password",$user["password"],time()+1800,"/");
+                //setcookie("role",$user["role"],time()+1800);
+
                 session_start();
                 $_SESSION["loginEmail"]=$user["email"];
                 $_SESSION["role"]=$user["role"];
@@ -48,8 +51,11 @@
                 if($user["role"]=="admin"){
                   header("Location:../view/admin/home.php");
                 }
-                if($user["role"]=="customer"){
+                else if($user["role"]=="customer"){
                     header("Location:../view/customer/home.php");
+                }
+                else{
+                    header("location:../view/employee/home.php");
                 }
             }
         }

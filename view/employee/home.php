@@ -1,14 +1,14 @@
 <?php
     session_start();
+
     if(!isset($_SESSION["loginEmail"]) && !isset($_SESSION["role"])){
         header("Location:../login.php");
         exit;
     }
-    if($_SESSION["role"]=="customer"){
-         echo "i am first customer.";
-         echo "<br><a href='../login.php'>logout</a>";
-    }
-   
+    if($_SESSION["role"]=="employee"){
+        echo "i am an employee.";
+        echo "<br><a href='../logout.php'>logout</a>";
+    }   
 ?>
 <!DOCTYPE html>
 <html>
