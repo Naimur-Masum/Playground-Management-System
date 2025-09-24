@@ -18,16 +18,8 @@ h2 {
     margin-bottom: 20px;
 }
 
-
 input {
-    width: 100%;
-
-#customer{
-    display:inline;
-}
-
-input {
-    width:100%;
+    width:95%;
     padding: 8px;
     margin: 8px 0;
     border: 1px solid gray;
@@ -36,7 +28,7 @@ input {
 }
 
    
-}
+
 
 /* Make radio buttons + labels inline */
 

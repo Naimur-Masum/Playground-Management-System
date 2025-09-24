@@ -1,0 +1,51 @@
+<?php
+    require_once("../../controller/returnAllEmployee.php");
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Informetion</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+     <div class="sidebar">
+    <h2>Admin Panel</h2>
+    <a href="home.php">Dashboard</a>
+    <a href="aboutCustomer.php">Customers</a>
+    <a href="aboutEmployee.php" style="color:sandybrown">Staffs</a>
+    <a href="aboutActivity.php">Activities</a>
+    <a href="../logout.php">Logout</a>
+  </div>
+
+  <div class="main">
+    <div class="header">
+      <h1>Employee Informetion</h1>
+    </div>
+
+    <!--<h2>Recent Bookings</h2>-->
+    <table>
+      <thead>
+        <tr>
+          <th>User Id</th>
+          <th>Username</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php
+            foreach($total as $row){
+        ?>
+        <tr>
+          <td><?php echo ($row["user_id"]); ?></td>
+          <td><?php echo ($row["username"]); ?></td>
+          <td><?php echo ($row["email"]); ?></td>
+        </tr>
+        <?php
+            }
+        ?>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
