@@ -37,7 +37,7 @@ if($_SESSION["role"]!="admin"){
       <p>Welcome, Admin</p>
     </div>
 
-    <!-- Stats Cards -->
+    
     <div class="cards">
       <div class="card">
         <h2 id="response"></h2>

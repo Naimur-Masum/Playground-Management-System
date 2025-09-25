@@ -92,20 +92,20 @@ table th {
 
 }
 .give {
-    margin-left: 20px;   /* push form slightly from edge */
-    text-align: left;    /* align text and inputs */
-    width: 300px;        /* optional fixed width */
+    margin-left: 20px;   
+    text-align: left;    
+    width: 300px;        
 }
 
 .give label {
-    display: block;      /* force label on new line */
+    display: block;      
     margin-top: 10px;
     font-weight: bold;
 }
 
 .give input[type="text"],
 .give input[type="number"] {
-    width: 100%;         /* make input full width */
+    width: 100%;         
     padding: 5px;
     margin-top: 5px;
     border: 1px solid gray;

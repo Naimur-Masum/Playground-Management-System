@@ -23,7 +23,7 @@
       <h1>About Activities</h1>
     </div>
 
-    <!--<h2>Recent Bookings</h2>-->
+    
     <table>
       <thead>
         <tr>
