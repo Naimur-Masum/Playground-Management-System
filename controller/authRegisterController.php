@@ -8,8 +8,9 @@
     $roleErr="";
     $fullnameErr="";
     $userExist="";
-    $done="";
-
+    $done="a";
+    $empNotAllowed="";
+    $status="";
     $name="";
     $email="";
     $fullname="";
@@ -127,15 +128,35 @@
         }
 
         else{
-            $insert=addUser($name,$password,$role,$fullname,$email);
+           // $insert=addUser($name,$password,$role,$fullname,$email);
+            
+                $status;
+            
+                if ($role == "Employee") {
+                    $approve = authEmployee($email);
+                    if ($approve !== false) {
+                        $insert = addUser($name, $password, $role, $fullname, $email);
+                        if ($insert) {
+                            header("Location:../view/register.php?status=success");
+                        } else {
+                            header("Location:../view/register.php?status=fail");
+                        }
+                    } 
+                    else {
+                        header("Location:../view/register.php?status=empNotAllowed");
+                    }
+                } 
+                else {
+                    $insert = addUser($name, $password, $role, $fullname, $email);
+                    if ($insert) {
+                        header("Location:../view/register.php?status=success");
+                    } else {
+                        header("Location:../view/register.php?status=fail");
+                    }
+                }
+                exit();
 
-            if($insert){
-                $done="Registretion Complite.";
-            }
-            else{
-                $done="Sorry.Try again.";
-            }
-            header("Location:../view/register.php?done=$done");
+           // header("Location:../view/register.php?done=$done&empNotAllowed=$empNotAllowed");
         }
     }
         

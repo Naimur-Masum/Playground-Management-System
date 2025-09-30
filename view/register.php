@@ -56,13 +56,22 @@
             }
             ?></span><br>
 
-            <?php 
-            if(isset($_GET['done']))
-            {
-                echo '<script>alert("Registerd Successfully")</script>';
-                
+           <?php 
+            if (isset($_GET["status"])) {
+                if ($_GET["status"] === "empNotAllowed") {
+                    echo "<script>alert('You are not allowed to be employee.')</script>";
+                } 
+                elseif ($_GET["status"] === "success") {
+                    echo "<script>alert('Registration Complete.')</script>";
+                } 
+                elseif ($_GET["status"] === "fail") {
+                    echo "<script>alert('Registration Not Complete.')</script>";
+                }
             }
             ?>
+
+
+
 
             <input type="submit" name="submit" value="Submit">
 

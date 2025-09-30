@@ -8,6 +8,18 @@
         return mysqli_fetch_assoc($result);
     }
 
+    function authEmployee($email){
+        $conn=getConnection();
+        $sql="SELECT * FROM admin_approves WHERE email='$email'";
+        $result=mysqli_query($conn,$sql);
+
+        if($result && mysqli_num_rows($result) > 0) {
+            return mysqli_fetch_assoc($result);
+        }
+        
+        return false;
+    }
+
     function addUser($userName,$pass,$role,$fullname,$email){
         $conn=getConnection();
         $sql="INSERT INTO users(username,password,role,full_name,email)VALUE('$userName','$pass','$role',
