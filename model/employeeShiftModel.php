@@ -6,7 +6,7 @@ function clockIn($employee_id) {
 
     $sql_check = "SELECT * FROM employee_workshifts WHERE employee_id = $employee_id AND check_out IS NULL";
     $result = mysqli_query($conn, $sql_check);
-    if(mysqli_num_rows($result) > 0) {
+    if (mysqli_num_rows($result) > 0) {
         return false;
     }
 
@@ -19,7 +19,7 @@ function clockOut($employee_id) {
 
     $sql = "SELECT * FROM employee_workshifts WHERE employee_id = $employee_id AND check_out IS NULL ORDER BY check_in DESC LIMIT 1";
     $result = mysqli_query($conn, $sql);
-    if(mysqli_num_rows($result) == 0) {
+    if (mysqli_num_rows($result) == 0) {
         return false;
     }
 
