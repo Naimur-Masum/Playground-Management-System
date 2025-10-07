@@ -1,5 +1,5 @@
 <?php
-require_once("../../controller/CustomerActivityController.php");
+require_once("../../controller/CustomerBookingController.php");
 ?>
 
 <!DOCTYPE html>
@@ -9,28 +9,34 @@ require_once("../../controller/CustomerActivityController.php");
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h2>Available Activities</h2>
+    <div class="sidebar">
+        <h2>Customer Panel</h2>
+        <a href="activities.php" style="color:sandybrown">Activities</a>
+        <a href="../logout.php">Logout</a>
+    </div>
 
-    <?php if (!empty($error)) { ?>
-        <p style="color: red;"><?php echo $error; ?></p>
-    <?php } ?>
+    <div class="main">
+        <h1>Available Activities</h1>
 
-    <form method="POST" action="../../controller/CustomerActivityController.php">
-        <label>Activity:</label>
-        <select name="activity_id" required>
-            <?php foreach ($activities as $activity) { ?>
-                <option value="<?php echo $activity['activity_id']; ?>">
-                    <?php echo $activity['name'] . " - $" . $activity['price']; ?>
-                </option>
-            <?php } ?>
-        </select>
-        <br><br>
+        <?php if (isset($_GET['message'])) { ?>
+            <p style="color:green;"><?php echo htmlspecialchars($_GET['message']); ?></p>
+        <?php } ?>
 
-        <label>Booking Date:</label>
-        <input type="date" name="booking_date" required>
-        <br><br>
+        <form method="POST" action="">
+            <label for="activity">Activity:</label>
+            <select name="activity_id" required>
+                <?php foreach ($activities as $act) { ?>
+                    <option value="<?php echo $act['activity_id']; ?>">
+                        <?php echo $act['name'] . " - $" . $act['price']; ?>
+                    </option>
+                <?php } ?>
+            </select><br><br>
 
-        <input type="submit" name="book_activity" value="Book Activity">
-    </form>
+            <label for="booking_date">Booking Date:</label>
+            <input type="date" name="booking_date" required><br><br>
+
+            <input type="submit" name="book_activity" value="Book Activity">
+        </form>
+    </div>
 </body>
 </html>
