@@ -1,16 +1,21 @@
 <?php
     require_once("database.php");
     function authActivity($name){
-        $conn=getConnection();
-        $sql="SELECT * FROM activities WHERE name='$name'";
-        $result=mysqli_query($conn,$sql);
-        
+        $conn = getConnection();
+        $sql = "SELECT * FROM activities WHERE name='$name'";
+        $result = mysqli_query($conn, $sql);
+
+        if (!$result) {
+            die("Database error: " . mysqli_error($conn));
+        }
+
         return mysqli_fetch_assoc($result);
     }
 
+
     function addActivity($name,$price,$duration){
         $conn=getConnection();
-        $sql="INSERT INTO activities(name,price,duration)VALUE('$name','$price','$duration')";
+        $sql="INSERT INTO activities(name,price,duration)VALUES('$name','$price','$duration')";
         $result=mysqli_query($conn,$sql);
 
         return $result;
@@ -60,7 +65,7 @@
         $conn = getConnection();
         $sql = "SELECT * FROM users WHERE email='$email'";
         $result = mysqli_query($conn, $sql);
-        
+
         return mysqli_fetch_assoc($result);
     }
 
