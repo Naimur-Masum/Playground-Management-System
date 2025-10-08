@@ -2,7 +2,7 @@
 require_once("../../model/PaymentModel.php");
 session_start();
 
-$customer_id = $_SESSION['customer_id'];
+$customer_id = $_SESSION['user_id'];
 
 if (isset($_POST['pay_now'])) {
     $booking_id = $_POST['booking_id'];

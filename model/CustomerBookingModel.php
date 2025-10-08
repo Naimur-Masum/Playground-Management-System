@@ -10,10 +10,25 @@ function getAllActivities() {
 
 function addBooking($customer_id, $activity_id, $employee_id = null, $booking_date) {
     $conn = getConnection();
-    $sql = "INSERT INTO bookings(customer_id, activity_id, employee_id, booking_date)
-            VALUES('$customer_id', '$activity_id', '$employee_id', '$booking_date')";
+    
+    if ($employee_id === null) {
+        $sql = "INSERT INTO bookings(customer_id, activity_id, employee_id, booking_date)
+                VALUES('$customer_id', '$activity_id', NULL, '$booking_date')";
+    } else {
+        $sql = "INSERT INTO bookings(customer_id, activity_id, employee_id, booking_date)
+                VALUES('$customer_id', '$activity_id', '$employee_id', '$booking_date')";
+    }
+    
+    if(mysqli_query($conn, $sql)){
+        return mysqli_insert_id($conn);
+    } 
+    else {
+        return false;
+    }
+
     return mysqli_query($conn, $sql);
 }
+
 
 function getBookingById($booking_id) {
     $conn = getConnection();

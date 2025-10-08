@@ -17,27 +17,25 @@ if (isset($_POST['book_activity'])) {
 
     $employee_id = null;
 
-    $booked = addBooking($customer_id, $activity_id, $employee_id, $booking_date);
+    $booking_id = addBooking($customer_id, $activity_id, $employee_id, $booking_date);
 
-    if ($booked) {
-        $booking_id = mysqli_insert_id(getConnection());
+if ($booking_id) {
+    $amount = getActivityPrice($activity_id);
+    $paid = addPayment($booking_id, $amount);
 
-        $amount = getActivityPrice($activity_id);
 
-        $paid = addPayment($booking_id, $amount);
-
-        if ($paid) {
+    if ($paid) {
             $message = "Booking and payment successful!";
-        }
-        else {
+    }
+    else {
             $message = "Booking done, but payment failed!";
-        }
+    }
     }
     else {
         $message = "Booking failed!";
     }
 
-    header("Location: ../view/customer/activities.php?message=" . urlencode($message));
+    header("Location: ../view/customer/payment.php?message=" . urlencode($message));
     exit;
 }
 ?>

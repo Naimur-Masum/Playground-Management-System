@@ -27,7 +27,7 @@ require_once("../../controller/CustomerBookingController.php");
             <select name="activity_id" required>
                 <?php foreach ($activities as $act) { ?>
                     <option value="<?php echo $act['activity_id']; ?>">
-                        <?php echo $act['name'] . " - $" . $act['price']; ?>
+                        <?php echo htmlspecialchars($act['name']) . " - $" . htmlspecialchars($act['price']); ?>
                     </option>
                 <?php } ?>
             </select><br><br>
