@@ -9,12 +9,12 @@
             }
 
              if($_SESSION["role"]=="customer"){
-                header("Location:view/customer/home.php");
+                header("Location:view/customer/customerDashboard.php");
                 exit();
             }
 
             if($_SESSION["role"]=="employee"){
-                header("Location:view/employee/home.php");
+                header("Location:view/employee/employeeDashboard.php");
                 exit();
             }
         }

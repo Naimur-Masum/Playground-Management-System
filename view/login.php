@@ -1,11 +1,20 @@
 <?php
-        if(isset($_SESSION["loginEmail"]) && isset($_SESSION["role"])){
-            
-            if($_SESSION["role"]=="admin"){
-                header("Location:admin/home.php");
-                exit;
-            }
-        }
+session_start();
+
+if(isset($_SESSION["role"])) {
+    if($_SESSION["role"] == "admin") {
+        header("Location: admin/home.php");
+        exit;
+    }
+    elseif($_SESSION["role"] == "employee") {
+        header("Location: employee/shift.php");
+        exit;
+    }
+    elseif($_SESSION["role"] == "customer") {
+        header("Location: customer/activities.php");
+        exit;
+    }
+}
 ?>
 
 <!DOCTYPE html>
