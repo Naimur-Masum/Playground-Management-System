@@ -44,15 +44,20 @@
                 session_start();
                 $_SESSION["loginEmail"]=$user["email"];
                 $_SESSION["role"]=$user["role"];
+
+                if($user['role'] == "employee" || $user['role'] == "customer"){
+                    $_SESSION["user_id"]=$user["user_id"];
+                    $_SESSION["full_name"]=$user["full_name"];
+                }
                 
                 if($user["role"]=="admin"){
                   header("Location:../view/admin/home.php");
                 }
                 else if($user["role"]=="customer"){
-                    header("Location:../view/customer/home.php");
+                    header("Location:../view/customer/customerDashboard.php");
                 }
                 else{
-                    header("location:../view/employee/home.php");
+                    header("location:../view/employee/employeeDashboard.php");
                 }
             }
         }

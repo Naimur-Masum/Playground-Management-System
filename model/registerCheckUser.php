@@ -20,12 +20,18 @@
         return false;
     }
 
-    function addUser($userName,$pass,$role,$fullname,$email){
-        $conn=getConnection();
-        $sql="INSERT INTO users(username,password,role,full_name,email)VALUE('$userName','$pass','$role',
-             '$fullname','$email')";
-        $result=mysqli_query($conn,$sql);
+   function addUser($userName, $pass, $role, $fullname, $email){
+    $conn = getConnection();
+    $sql = "INSERT INTO users(username, password, role, full_name, email) 
+        VALUES ('$userName','$pass', '$role', '$fullname', '$email')";
+    if (mysqli_query($conn, $sql)) {
+        
+        return mysqli_insert_id($conn);
+    } 
 
-        return $result;
+    else {
+        return false;
     }
+}
+    
 ?>

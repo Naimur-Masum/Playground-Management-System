@@ -148,7 +148,16 @@
                 } 
                 else {
                     $insert = addUser($name, $password, $role, $fullname, $email);
+
                     if ($insert) {
+                        if ($role == "Customer"){
+                            require_once("../model/database.php");
+                            $conn = getConnection();
+                            $user_id = $insert;
+                            $sqlCustomer = "INSERT INTO customer_info (customer_id, username, email)
+                                            VALUES ('$user_id', '$name', '$email')";
+                            mysqli_query($conn, $sqlCustomer);                
+                        }
                         header("Location:../view/register.php?status=success");
                     } else {
                         header("Location:../view/register.php?status=fail");
