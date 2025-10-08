@@ -16,6 +16,7 @@ body {
 }
 .sidebar h2 {
     margin: 0 0 20px;
+    margin-top:20px;
     font-size: 20px;
     text-align: center;
 }
@@ -32,13 +33,37 @@ body {
     background: #1abc9c;
 }
 .main {
+    margin-top:20px;
     margin-left: 240px;
     padding: 20px;
+}
+.main input {
+    width:95%;
+    padding: 8px;
+    margin: 8px 0;
+    border: 1px solid gray;
+    border-radius: 4px;
+
+}
+.main button{
+    font-size:18px;
+    border-radius: 8px;
+    display:block;
+    margin:auto;
+    width:90px;
+    height: 40px;
+    color: #1abc9c;
+}
+.main h{
+    font-size: 24px;
+    margin:0;
+    font-weight:bold;
 }
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top:80px;
     margin-bottom: 20px;
 }
 .header h1 {

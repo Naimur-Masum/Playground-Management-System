@@ -47,6 +47,8 @@
         ?>
       </tbody>
     </table>
+    <button onclick="window.location.href='home.php'" style="position:fixed; 
+     right:40px; bottom:20px;">Back</button>
   </div>
 </body>
 </html>

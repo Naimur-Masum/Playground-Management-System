@@ -52,6 +52,8 @@
             {
                 
                 echo '<script>alert("This username alrady registered")</script>';
+            
+                header("Location: login.php");
                
             }
             ?></span><br>
@@ -62,11 +64,17 @@
                     echo "<script>alert('You are not allowed to be employee.')</script>";
                 } 
                 elseif ($_GET["status"] === "success") {
-                    echo "<script>alert('Registration Complete.')</script>";
+                    echo "<script>alert('Registration Complete.');
+                    window.location.href = 'login.php';
+                    </script>";
+                    
                 } 
                 elseif ($_GET["status"] === "fail") {
                     echo "<script>alert('Registration Not Complete.')</script>";
                 }
+                //if($_GET["status"] === "success"){
+                    //header("Location: login.php");
+                //}
             }
             ?>
 

@@ -29,4 +29,11 @@
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    function allEmail(){
+        $conn=getConnection();
+        $sql="SELECT * FROM admin_approves";
+        $result=mysqli_query($conn,$sql);
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
 ?>

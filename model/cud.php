@@ -24,12 +24,59 @@
         return $result;
     }
 
-    function updateActivity($name,$price,$duration){
+    function updateActivityPrice($name,$price){
         $conn=getConnection();
-        $sql="UPDATE activities SET price='$price',duration='$duration' WHERE name='$name'";
+        $sql="UPDATE activities SET price='$price' WHERE name='$name'";
         $result=mysqli_query($conn,$sql);
 
         return $result;
     }
 
+    function updateActivityDuration($name,$duration){
+        $conn=getConnection();
+        $sql="UPDATE activities SET duration='$duration' WHERE name='$name'";
+        $result=mysqli_query($conn,$sql);
+
+        return $result;
+    }
+
+    function addApprovedEmail($email){
+        $conn=getConnection();
+        $sql="INSERT INTO admin_approves(email)VALUE('$email')";
+        $result=mysqli_query($conn,$sql);
+
+        return $result;
+    }
+
+    function authEmployee($email){
+        $conn=getConnection();
+        $sql="SELECT * FROM admin_approves WHERE email='$email'";
+        $result=mysqli_query($conn,$sql);
+        
+        return mysqli_fetch_assoc($result);
+    }
+
+    function authUser($email){
+        $conn = getConnection();
+        $sql = "SELECT * FROM users WHERE email='$email'";
+        $result = mysqli_query($conn, $sql);
+        
+        return mysqli_fetch_assoc($result);
+    }
+
+    function deleteEmployeeUsers($email){
+        $conn=getConnection();
+        $sql="DELETE FROM users WHERE email='$email'";
+        $result=mysqli_query($conn,$sql);
+
+        return $result;
+    }
+
+    function deleteEmployeeAdminApproves($email){
+        $conn=getConnection();
+        $sql="DELETE FROM admin_approves WHERE email='$email'";
+        $result=mysqli_query($conn,$sql);
+
+        return $result;
+    }
 ?>
