@@ -1,6 +1,7 @@
 <?php
    
     require_once("userLogin.php");
+    session_start();
     $emailErr="";
     $passErr="";
     $hasErr=false;
@@ -41,13 +42,15 @@
             {
                 setcookie("password",$user["password"],time()+1800,"/");
                 //setcookie("role",$user["role"],time()+1800);
-                session_start();
+                
                 $_SESSION["loginEmail"]=$user["email"];
                 $_SESSION["role"]=$user["role"];
+                $_SESSION["user_id"]=$user["user_id"];
+                $_SESSION["full_name"]=$user["full_name"];
 
-                if($user['role'] == "employee" || $user['role'] == "customer"){
-                    $_SESSION["user_id"]=$user["user_id"];
-                    $_SESSION["full_name"]=$user["full_name"];
+                    if ($user['role'] == "employee") {
+                        $_SESSION['employee_id'] = $user["user_id"];
+                    }
                 }
                 
                 if($user["role"]=="admin"){
@@ -61,4 +64,4 @@
                 }
             }
         }
-    }
+    

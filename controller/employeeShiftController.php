@@ -1,5 +1,6 @@
-    <?php
-    require_once("../model/EmployeeShiftModel.php");
+<?php
+  require_once(__DIR__ . '/../model/EmployeeShiftModel.php');
+
     session_start();
 
     if (!isset($_SESSION['loginEmail']) || $_SESSION['role'] != 'employee') {

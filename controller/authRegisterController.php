@@ -128,24 +128,25 @@
         }
 
         else{
-           // $insert=addUser($name,$password,$role,$fullname,$email);
-            
-                $status;
+
+            $status;
             
                 if ($role == "Employee") {
                     $approve = authEmployee($email);
                     if ($approve !== false) {
-                        $insert = addUser($name, $password, $role, $fullname, $email);
-                        if ($insert) {
-                            header("Location:../view/register.php?status=success");
-                        } else {
-                            header("Location:../view/register.php?status=fail");
-                        }
+                         $insert = addUser($name, $password, $role, $fullname, $email);
+                    if ($insert) {
+                        require_once("../model/database.php");
+                        $conn = getConnection();
+                        $user_id = $insert;
+                        $sqlEmployee = "INSERT INTO employee_info (employee_id) VALUES ('$user_id')";
+                         mysqli_query($conn, $sqlEmployee);
+                        header("Location:../view/register.php?status=success");
                     } 
                     else {
-                        header("Location:../view/register.php?status=empNotAllowed");
+                         header("Location:../view/register.php?status=fail");
                     }
-                } 
+            }   
                 else {
                     $insert = addUser($name, $password, $role, $fullname, $email);
 
@@ -163,11 +164,10 @@
                         header("Location:../view/register.php?status=fail");
                     }
                 }
-                exit();
-
-           // header("Location:../view/register.php?done=$done&empNotAllowed=$empNotAllowed");
+            }   exit();
         }
     }
+
         
 
 ?>

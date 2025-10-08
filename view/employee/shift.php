@@ -25,10 +25,11 @@ require_once("../../controller/EmployeeShiftController.php");
         <?php } ?>
 
         <div class="shift-buttons">
-            <form method="POST" action="">
+            <form method="POST" action="../../controller/EmployeeShiftController.php">
                 <input type="submit" name="clock_in" value="Clock In">
                 <input type="submit" name="clock_out" value="Clock Out">
             </form>
+
         </div>
 
         <h2>Shift History</h2>
