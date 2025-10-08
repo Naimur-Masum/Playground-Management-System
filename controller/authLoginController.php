@@ -7,7 +7,7 @@
     $invalidUser="";
 
     if(($_SERVER["REQUEST_METHOD"]=="POST") && (isset($_POST["submit"]))){
-        if(!filter_var($_POST["loginEmail"],FILTER_VALIDATE_EMAIL))
+        if(!filter_var(trim($_POST["loginEmail"]),FILTER_VALIDATE_EMAIL))
         {
             $hasErr=true;
             $emailErr="Invalid Email";
@@ -26,9 +26,7 @@
         }
 
         else
-        {
-           
-           
+        {      
             $user=searchUser($_POST["loginEmail"],$_POST["loginPassword"]);
             
             //ECHO "$name $pass";
@@ -43,7 +41,6 @@
             {
                 setcookie("password",$user["password"],time()+1800,"/");
                 //setcookie("role",$user["role"],time()+1800);
-
                 session_start();
                 $_SESSION["loginEmail"]=$user["email"];
                 $_SESSION["role"]=$user["role"];

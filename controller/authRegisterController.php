@@ -26,7 +26,7 @@
             $hasErr=true;
         }
         else{
-            if(preg_match("/^[a-zA-Z-' ]*$/",$_POST["userName"])){
+            if(preg_match("/^[a-zA-Z-' ]*$/",trim($_POST["userName"]))){
                 $name=$_POST["userName"];
             }
             else{
@@ -40,7 +40,7 @@
             $hasErr=true;
         }
         else{
-            $em=$_POST["userEmail"];
+            $em=trim($_POST["userEmail"]);
             if(filter_var($em,FILTER_VALIDATE_EMAIL)){
                 $email=$em;
             }
