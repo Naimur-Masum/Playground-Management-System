@@ -21,14 +21,29 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'customer') {
     <a href="../logout.php">Logout</a>
 </div>
 
-<div class="main">
+<div class="main dashboard-container">
     <h1>Welcome, <?php echo $_SESSION['full_name']; ?></h1>
-    <p>From here, you can manage your activities, view your bookings, and make payments.</p>
+    <p>Explore SafeZone Playground — fun, safe, and loved by our customers!</p>
 
-    <div class="dashboard-options">
-        <a href="activities.php" class="dash-btn">View Activities</a>
-        <a href="booking.php" class="dash-btn">My Bookings</a>
-        <a href="payment.php" class="dash-btn">Make Payments</a>
+    <div class="playground-info">
+        <div class="playground-card">
+            <h2>Play Areas</h2>
+            <ul>
+                <li>Modern swings, slides, and climbing frames for all ages.</li>
+                <li>Clean, safe, and regularly maintained play zones.</li>
+                <li>Flexible booking options for weekends, weekdays, and events.</li>
+            </ul>
+        </div>
+
+        <div class="playground-card">
+            <h2>Safety Ratings</h2>
+            <p>Our playground is rated 4.9/5 by our customers. Safety is our top priority, ensuring a worry-free experience for kids and parents.</p>
+        </div>
+
+        <div class="playground-card">
+            <h2>Staff & Supervision</h2>
+            <p>Trained attendants monitor all play zones and are available to help children and answer parent inquiries.</p>
+        </div>
     </div>
 </div>
 </body>

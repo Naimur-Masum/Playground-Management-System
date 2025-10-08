@@ -1,0 +1,106 @@
+/* Playground friendly style */
+:root {
+    --primary: #4f46e5;
+    --secondary: #f9fafb;
+    --accent: #10b981;
+}
+
+body {
+    background-color: var(--secondary);
+    color: var(--primary);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 220px;
+    height: 100vh;
+    position: fixed;
+    background-color: var(--primary);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.sidebar h2 {
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.sidebar a {
+    color: #fff;
+    text-decoration: none;
+    margin: 8px 0;
+    font-size: 16px;
+    transition: opacity 0.3s;
+}
+
+.sidebar a:hover {
+    opacity: 0.7;
+}
+
+/* Main content */
+.main {
+    margin-left: 240px;
+    padding: 40px;
+}
+
+.dashboard-container h1 {
+    font-size: 28px;
+    margin-bottom: 16px;
+}
+
+.dashboard-container p {
+    font-size: 16px;
+    margin-bottom: 24px;
+    line-height: 1.5;
+}
+
+/* Playground Info Card */
+.playground-info {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+.playground-info h2 {
+    margin-top: 20px;
+    color: var(--primary);
+    font-size: 20px;
+}
+
+.playground-info ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+.playground-info ul li {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.playground-info p {
+    font-size: 16px;
+    margin-top: 10px;
+    line-height: 1.5;
+}
+
+/* Optional: Responsive for small screens */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+    .main {
+        margin-left: 0;
+        padding: 20px;
+    }
+}
