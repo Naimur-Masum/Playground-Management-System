@@ -13,22 +13,26 @@
             //header("Location:../view/admin/aboutActivity.php?hasErrr=$hasErr");
             exit();
         }
+        if(empty($_POST["name"])){
+            header("Location:../view/admin/aboutActivity.php?hasErrr=activity name can not be empty");
+            exit();
+        }
         
         if($_POST["submit"]=="Add"){
            
-            $user=authActivity($_POST["name"]);
+            $activity=authActivity(trim($_POST["name"]));
             
             //ECHO "$name $pass";
-            if($user || empty($user))
+            if($activity)
             {
-                $hasErr="hey";
+                $hasErr="problem";
                 header("Location:../view/admin/aboutActivity.php?hasErrr=$hasErr");
                 exit();
             }
 
             else
             {
-                $add=addActivity($_POST["name"],$_POST["price"],$_POST["duration"]);
+                $add=addActivity(trim($_POST["name"]),trim($_POST["price"]),trim($_POST["duration"]));
                 if($add){
                    $ad="hey";
                    header("Location:../view/admin/aboutActivity.php?ad=$ad");
@@ -72,62 +76,31 @@
             }
         }
 
-        else if($_POST["submit"]=="Update"){
-            $user=authActivity($_POST["name"]);
-            
-            
-            if(!$user || $user==="")
-            {
-                $hasErr="hey";
-                header("Location:../view/admin/aboutActivity.php?hasErrr=$hasErr");
-                exit();
+        elseif ($_POST["submit"] == "Update") {
+        
+            $name = trim($_POST["name"]);
+            $price = trim($_POST["price"]);
+            $duration = trim($_POST["duration"]);
+            $updated = false;
+
+            if (!empty($duration)) {
+                if (updateActivityDuration($name, $duration)) {
+                    $updated = true;
+                }
             }
 
-            else
-            {
-                if(empty($_POST["duration"])){
-                    $hasErr="hey";
-                    header("Location:../view/admin/aboutActivity.php?hasErrr=$hasErr");
-                    exit();
+            if (!empty($price)) {
+                if (updateActivityPrice($name, $price)) {
+                    $updated = true;
                 }
-                else{
-                    $update1=updateActivityDuration($_POST["name"],$_POST["duration"]);
-                    if($update1){
-                        $up="hey";
-                        header("Location:../view/admin/aboutActivity.php?up=$up");
-                        exit();
-                    }
-                
-
-                    else{
-                        $hasErr="hey";
-                    
-                        header("Location:../view/admin/aboutActivity.php?hasErrr=$hasErr");
-                        exit();
-                    }
-                }
-                
-                if(empty($_POST["price"])){
-                    $hasErr="hey";
-                    header("Location:../view/admin/aboutActivity.php?hasErrr=$hasErr");
-                    exit();
-                }
-                else{
-                    $update2=updateActivityPrice($_POST["name"],$_POST["price"]);
-                    if($update2){
-                        $up="hey";
-                        header("Location:../view/admin/aboutActivity.php?up=$up");
-                        exit();
-                    }
-
-                    else{
-                        $hasErr="hey";                   
-                        header("Location:../view/admin/aboutActivity.php?hasErrr=$hasErr");
-                        exit();
-                    }
-                }
-
             }
+
+            if ($updated) {
+                header("Location: ../view/admin/aboutActivity.php?up=success");
+            } else {
+                header("Location: ../view/admin/aboutActivity.php?hasErrr=no_changes");
+            }
+            exit();
         }
      }
 ?>
