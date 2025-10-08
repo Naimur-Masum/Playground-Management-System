@@ -1,5 +1,12 @@
 <?php
 require_once("../../controller/CustomerBookingController.php");
+
+$error = "";
+$success = "";
+
+if (isset($_GET['message'])) {
+    $success = $_GET['message'];
+}
 ?>
 
 <!DOCTYPE html>

@@ -11,6 +11,9 @@ $customer_id = $_SESSION['user_id'];
 
 $activities = getAllActivities();
 
+$error = '';
+$success = '';
+
 if (isset($_POST['book_activity'])) {
     $activity_id = $_POST['activity_id'];
     $booking_date = $_POST['booking_date'];
@@ -20,22 +23,14 @@ if (isset($_POST['book_activity'])) {
     $booking_id = addBooking($customer_id, $activity_id, $employee_id, $booking_date);
 
 if ($booking_id) {
-    $amount = getActivityPrice($activity_id);
-    $paid = addPayment($booking_id, $amount);
+    $message = "Booking successful! Please proceed to payment.";
+    header("Location: ../view/customer/payment.php?booking_id=$booking_id&message=" . urlencode($message));
+} 
+else {
+    $message = "Booking failed!";
+    header("Location: ../view/customer/activities.php?message=" . urlencode($message));
+}
+exit;
 
-
-    if ($paid) {
-            $message = "Booking and payment successful!";
-    }
-    else {
-            $message = "Booking done, but payment failed!";
-    }
-    }
-    else {
-        $message = "Booking failed!";
-    }
-
-    header("Location: ../view/customer/payment.php?message=" . urlencode($message));
-    exit;
 }
 ?>

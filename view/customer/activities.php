@@ -22,7 +22,7 @@ require_once("../../controller/CustomerBookingController.php");
             <p style="color:green;"><?php echo htmlspecialchars($_GET['message']); ?></p>
         <?php } ?>
 
-        <form method="POST" action="">
+        <form method="POST" action="../../controller/CustomerBookingController.php">
             <label for="activity">Activity:</label>
             <select name="activity_id" required>
                 <?php foreach ($activities as $act) { ?>

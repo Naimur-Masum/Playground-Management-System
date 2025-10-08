@@ -1,5 +1,33 @@
 <?php
 require_once("../../controller/PaymentController.php");
+$error = "";
+$success = "";
+
+
+if (isset($_POST['pay_now'])) {
+    $booking_id = $_POST['booking_id'];
+    $activity_id = $_POST['activity_id'];
+    $amount = getActivityPrice($activity_id);
+    $paid = addPayment($booking_id, $amount);
+
+    if ($paid) {
+        $success = "Payment successful for Booking ID: $booking_id";
+    } 
+    else {
+        $error = "Payment failed for Booking ID: $booking_id";
+    }
+
+    header("Location: payment.php?success=" . urlencode($success) . "&error=" . urlencode($error));
+    exit;
+}
+
+if (isset($_GET['success'])) {
+    $success = $_GET['success'];
+}
+if (isset($_GET['error'])) {
+    $error = $_GET['error'];
+}
+
 ?>
 
 <!DOCTYPE html>
