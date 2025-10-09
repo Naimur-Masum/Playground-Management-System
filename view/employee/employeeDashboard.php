@@ -27,6 +27,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'employee') {
     <div class="dashboard-options">
         <a href="shift.php" class="dash-btn">View Shifts</a>
         <a href="approveBooking.php" class="dash-btn">Approve Bookings</a>
+        <a href="activities.php">Manage Activities</a>
     </div>
 </div>
 </body>
