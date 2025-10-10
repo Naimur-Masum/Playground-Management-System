@@ -34,25 +34,30 @@ if (isset($_GET['error'])) {
 <html>
 <head>
     <title>Make Payment</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Bebas+Neue&display=swap" rel="stylesheet">
 </head>
+
 <body>
 <div class="sidebar">
-    <h2>Customer Panel</h2>
-    <a href="activities.php">Bookings</a>
-    <a href="../logout.php">Logout</a>>
+        <nav>
+            <ul>
+                <li><a href="activities.php">Make Booking</a></li>
+                <u><li><a href="payment.php">My Payments</a></li></u>
+                <li><a href="customerDashboard.php">Dashboard</a></li>
+            </ul>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <a href="../logout.php" class="logout-btn">Log out</a>
+        </div>
 </div>
 
-<div class="main">
-    <h1>Make Payment</h1>
-
-    <?php if (isset($_GET['message'])) { ?>
-        <p style="color:green;"><?php echo $_GET['message']; ?></p>
-    <?php } elseif (isset($_GET['error'])) { ?>
-        <p style="color:red;"><?php echo $_GET['error']; ?></p>
-    <?php } ?>
-
-    <h2>Pending Payments</h2>
+<div class="content"> 
+<section class="pend-payments">
+    <h1>Pending Payments</h1>
     <table>
         <thead>
             <tr>
@@ -79,8 +84,11 @@ if (isset($_GET['error'])) {
             <?php } ?>
         </tbody>
     </table>
+ </section>
 
-    <h2>Payment History</h2>
+<br><br><br>
+<section class="payment-history">
+    <h1>Payment History</h1>
     <table>
         <thead>
             <tr>
