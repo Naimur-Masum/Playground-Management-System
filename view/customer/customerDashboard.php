@@ -10,41 +10,54 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'customer') {
 <html>
 <head>
     <title>Customer Dashboard</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Bebas+Neue&display=swap" rel="stylesheet">
 </head>
 <body>
-<div class="sidebar">
-    <h2>Customer Panel</h2>
-    <a href="activities.php">Activities</a>
-    <a href="booking.php">Bookings</a>
-    <a href="payment.php">Payments</a>
-    <a href="../logout.php">Logout</a>
-</div>
+    <section class="header">
+        <nav>
+            <div class="nav-links">
+                <ul>
+                    <li><a href="activities.php">Make Booking</a></li>
+                    <li><a href="payment.php">My Payments</a></li>
+                    <li class="logout"><a href="../logout.php">Log out</a></li>
+                </ul>
+            </div>
+        </nav>
 
-<div class="main dashboard-container">
-    <h1>Welcome, <?php echo $_SESSION['full_name']; ?></h1>
-    <p>Explore SafeZone Playground — fun, safe, and loved by our customers!</p>
-
-    <div class="playground-info">
-        <div class="playground-card">
-            <h2>Play Areas</h2>
-            <ul>
-                <li>Modern swings, slides, and climbing frames for all ages.</li>
-                <li>Clean, safe, and regularly maintained play zones.</li>
-                <li>Flexible booking options for weekends, weekdays, and events.</li>
-            </ul>
+        <div class="text-box">
+            <h1>Welcome back, <?php echo $_SESSION['full_name']; ?> </h1>
+            <p>Discover SafeZone Playground — a trusted spot for fun, socializing, and enjoying <br> memorable experiences with friends and family.</p>
+            <a href="activities.php" class="hero-btn">Book An Activity</a>
         </div>
+    </section>
 
-        <div class="playground-card">
-            <h2>Safety Ratings</h2>
-            <p>Our playground is rated 4.9/5 by our customers. Safety is our top priority, ensuring a worry-free experience for kids and parents.</p>
+    <section class="activities">
+        <h1>Activities We Offer</h1>
+        <div class="row">
+            <div class="activities-col">
+                <img src="basketball.jpg">
+                <h3>Basketball</h3>
+                <p>Shoot, pass, and dribble in fast-paced games that boost teamwork and energy</p>
+            </div>
+            <div class="activities-col">
+                <img src="pool.jpg">
+                <h3>Swimming</h3>
+                <p>Dive in and enjoy a refreshing, safe, and invigorating swimming experience.</p>
+            </div>
+            <div class="activities-col">
+                <img src="badminton.jpg">
+                <h3>Badminton</h3>
+                <p>Smash, serve, and rally in fun matches that improve agility and focus.</p>
+            </div>
+            <div class="activities-col">
+                <img src="Football.jpg">
+                <h3>Football</h3>
+                <p>Score goals and play thrilling matches that strengthen teamwork and fitness.</p>
+            </div>
         </div>
-
-        <div class="playground-card">
-            <h2>Staff & Supervision</h2>
-            <p>Trained attendants monitor all play zones and are available to help children and answer parent inquiries.</p>
-        </div>
-    </div>
-</div>
+    </section>
 </body>
 </html>

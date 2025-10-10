@@ -39,10 +39,8 @@ if (isset($_GET['error'])) {
 <body>
 <div class="sidebar">
     <h2>Customer Panel</h2>
-    <a href="activities.php">Activities</a>
-    <a href="booking.php">Bookings</a>
-    <a href="payment.php" style="color:sandybrown;">Payments</a>
-    <a href="../logout.php">Logout</a>
+    <a href="activities.php">Bookings</a>
+    <a href="../logout.php">Logout</a>>
 </div>
 
 <div class="main">
