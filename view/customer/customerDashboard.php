@@ -20,7 +20,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'customer') {
         <nav>
             <div class="nav-links">
                 <ul>
-                    <li><a href="activities.php">Make Booking</a></li>
+                    <li><a href="booking.php">Make Booking</a></li>
                     <li><a href="payment.php">My Payments</a></li>
                     <li class="logout"><a href="../logout.php">Log out</a></li>
                 </ul>
@@ -30,7 +30,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'customer') {
         <div class="text-box">
             <h1>Welcome back, <?php echo $_SESSION['full_name']; ?> </h1>
             <p>Discover SafeZone Playground — a trusted spot for fun, socializing, and enjoying <br> memorable experiences with friends and family.</p>
-            <a href="activities.php" class="hero-btn">Book An Activity</a>
+            <a href="booking.php" class="hero-btn">Book An Activity</a>
         </div>
     </section>
 
@@ -38,22 +38,22 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'customer') {
         <h1>Activities We Offer</h1>
         <div class="row">
             <div class="activities-col">
-                <img src="basketball.jpg">
+                <img src="../../assets/basketball.jpg">
                 <h3>Basketball</h3>
                 <p>Shoot, pass, and dribble in fast-paced games that boost teamwork and energy</p>
             </div>
             <div class="activities-col">
-                <img src="pool.jpg">
+                <img src="../../assets/pool.jpg">
                 <h3>Swimming</h3>
                 <p>Dive in and enjoy a refreshing, safe, and invigorating swimming experience.</p>
             </div>
             <div class="activities-col">
-                <img src="badminton.jpg">
+                <img src="../../assets/badminton.jpg">
                 <h3>Badminton</h3>
                 <p>Smash, serve, and rally in fun matches that improve agility and focus.</p>
             </div>
             <div class="activities-col">
-                <img src="Football.jpg">
+                <img src="../../assets/Football.jpg">
                 <h3>Football</h3>
                 <p>Score goals and play thrilling matches that strengthen teamwork and fitness.</p>
             </div>

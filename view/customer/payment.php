@@ -44,7 +44,7 @@ if (isset($_GET['error'])) {
 <div class="sidebar">
         <nav>
             <ul>
-                <li><a href="activities.php">Make Booking</a></li>
+                <li><a href="booking    `.php">Make Booking</a></li>
                 <u><li><a href="payment.php">My Payments</a></li></u>
                 <li><a href="customerDashboard.php">Dashboard</a></li>
             </ul>
