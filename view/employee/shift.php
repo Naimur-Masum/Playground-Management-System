@@ -6,19 +6,31 @@ require_once("../../controller/EmployeeShiftController.php");
 <html>
 <head>
     <title>Employee Shift</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Bebas+Neue&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="sidebar">
-        <h2>Employee Panel</h2>
-        <a href="shift.php" style="color:sandybrown">Shifts</a>
-        <a href="../logout.php">Logout</a>
+        <nav>
+            <ul>
+                <li><a href="approveBooking.php">Approve Bookings</a></li>
+                <li><a href="activities.php">Manage Activities</a></li>
+                <u><li><a href="shift.php">My Shifts</a></li></u>
+                <li><a href="employeeDashboard.php">Dashboard</a></li>
+            </ul>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <a href="../logout.php" class="logout-btn">Log out</a>
+        </div>
+        
     </div>
 
-    <div class="main">
-        <div class="header">
-            <h1>My Shifts</h1>
-        </div>
+    <div class="content">
+        <section class="my-shifts-table">
+            <h1>My Shifts History</h1>
 
         <?php if (isset($_GET['message'])) { ?>
             <p style="color:green;"><?php echo htmlspecialchars($_GET['message']); ?></p>
@@ -26,13 +38,12 @@ require_once("../../controller/EmployeeShiftController.php");
 
         <div class="shift-buttons">
             <form method="POST" action="../../controller/EmployeeShiftController.php">
-                <input type="submit" name="clock_in" value="Clock In">
-                <input type="submit" name="clock_out" value="Clock Out">
+                <input type="submit" name="clock_in" value="Clock In" class="btn-submit">
+                <input type="submit" name="clock_out" value="Clock Out" class="btn-submit">
             </form>
-
         </div>
+        <br><br>
 
-        <h2>Shift History</h2>
         <table>
             <thead>
                 <tr>

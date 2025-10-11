@@ -1,5 +1,5 @@
 <?php
-session_start();
+require_once("../../controller/EmployeeShiftController.php");
 if (!isset($_SESSION['role']) || $_SESSION['role'] != 'employee') {
     header("Location: ../../login.php");
     exit;

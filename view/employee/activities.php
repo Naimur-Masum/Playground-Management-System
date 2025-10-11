@@ -6,20 +6,40 @@ require_once('../../controller/EmployeeActivityController.php');
 <head>
     <title>Employee Activities</title>
     <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Bebas+Neue&display=swap" rel="stylesheet">
 </head>
 <body>
-<h2>Admin Activities (Editable)</h2>
 
-<table border="1" cellpadding="10">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Duration</th>
-            <th>Action</th>
-        </tr>
-    </thead>
+<div class="sidebar">
+    <nav>
+        <ul>
+            <li><a href="approveBooking.php">Approve Bookings</a></li>
+            <u><li><a href="activities.php">Manage Activities</a></li></u>
+            <li><a href="shift.php">My Shifts</a></li>
+            <li><a href="employeeDashboard.php">Dashboard</a></li>
+        </ul>
+    </nav>
+
+    <div class="sidebar-bottom">
+        <a href="../logout.php" class="logout-btn">Log out</a>
+    </div>
+</div>
+
+<div class="content">
+    <section class="edit-activities-table">
+    <h1>Edit Available Activities</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Duration</th>
+                <th>Action</th>
+            </tr>
+        </thead>
     <tbody>
     <?php foreach ($activities as $act): ?>
         <tr>
@@ -30,7 +50,7 @@ require_once('../../controller/EmployeeActivityController.php');
                 <td><input type="text" name="duration" value="<?php echo $act['duration']; ?>"></td>
                 <td>
                     <input type="hidden" name="activity_id" value="<?php echo $act['activity_id']; ?>">
-                    <button type="submit" name="update">Update</button>
+                    <button type="submit" name="update" class="btn-action">Update</button>
                 </td>
             </form>
         </tr>
