@@ -12,6 +12,7 @@ require_once("../../controller/EmployeeShiftController.php");
     <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Bebas+Neue&display=swap" rel="stylesheet">
 </head>
 <body>
+    <section class="emp-header">
     <div class="sidebar">
         <nav>
             <ul>
@@ -29,7 +30,6 @@ require_once("../../controller/EmployeeShiftController.php");
     </div>
 
     <div class="content">
-        <section class="my-shifts-table">
             <h1>My Shifts History</h1>
 
         <?php if (isset($_GET['message'])) { ?>
@@ -65,5 +65,6 @@ require_once("../../controller/EmployeeShiftController.php");
             </tbody>
         </table>
     </div>
+    </section>
 </body>
 </html>

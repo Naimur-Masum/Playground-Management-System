@@ -2,7 +2,7 @@
 require_once(__DIR__ . '/../model/EmployeeBookingModel.php');
 session_start();
 
-if (!isset($_SESSION['user_id']) && !isset($_SESSION['employee_id']) || $_SESSION['role'] != 'employee') {
+if (!isset($_SESSION['role']) || $_SESSION['role'] != 'employee') {
     header("Location: ../login.php");
     exit;
 }

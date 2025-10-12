@@ -11,7 +11,7 @@ require_once('../../controller/EmployeeActivityController.php');
     <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Bebas+Neue&display=swap" rel="stylesheet">
 </head>
 <body>
-
+<section class="emp-header">
 <div class="sidebar">
     <nav>
         <ul>
@@ -28,7 +28,6 @@ require_once('../../controller/EmployeeActivityController.php');
 </div>
 
 <div class="content">
-    <section class="edit-activities-table">
     <h1>Edit Available Activities</h1>
     <table>
         <thead>
@@ -57,5 +56,6 @@ require_once('../../controller/EmployeeActivityController.php');
     <?php endforeach; ?>
     </tbody>
 </table>
+</section>
 </body>
 </html>

@@ -11,9 +11,12 @@
     $employee_id = $_SESSION['user_id'] ?? null;
 
     if (!$employee_id) {
-        die("Employee not found.");
+        header("Location: ../login.php?error=employee_not_found");
+        exit;
     }
 
+    
+    
     if (isset($_POST['clock_in'])) {
         $clockedIn = clockIn($employee_id);
         if ($clockedIn) {

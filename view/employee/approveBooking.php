@@ -6,21 +6,29 @@ require_once("../../controller/EmployeeBookingController.php");
 <html>
 <head>
     <title>Approve Bookings</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Bebas+Neue&display=swap" rel="stylesheet">
 </head>
 <body>
+<section class="emp-header">
 <div class="sidebar">
-    <h2>Employee Panel</h2>
-    <a href="shift.php">Shifts</a>
-    <a href="approveBooking.php" style="color:sandybrown;">Approve Bookings</a>
-    <a href="../logout.php">Logout</a>
+    <nav>
+        <ul>
+            <u><li><a href="approveBooking.php">Approve Bookings</a></li></u>
+            <li><a href="activities.php">Manage Activities</a></li>
+            <li><a href="shift.php">My Shifts</a></li>
+            <li><a href="employeeDashboard.php">Dashboard</a></li>
+         </ul>
+     </nav>
+    <div class="sidebar-bottom">
+        <a href="../logout.php" class="logout-btn">Log out</a>
+    </div>
 </div>
 
-<div class="main">
-    <div class="header">
+<div class="content">
         <h1>Approve Customer Bookings</h1>
-    </div>
-
     <?php if (isset($_GET['message'])) { ?>
         <p style="color:green;"><?php echo $_GET['message']; ?></p>
     <?php } elseif (isset($_GET['error'])) { ?>
@@ -55,5 +63,6 @@ require_once("../../controller/EmployeeBookingController.php");
         </tbody>
     </table>
 </div>
+</section>
 </body>
 </html>
