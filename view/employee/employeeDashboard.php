@@ -16,7 +16,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'employee') {
     <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Bebas+Neue&display=swap" rel="stylesheet">
 </head>
 <body>
-<section class="emp-header">
+<section class="bg-header">
     <div class="sidebar">
         <nav>
             <ul>

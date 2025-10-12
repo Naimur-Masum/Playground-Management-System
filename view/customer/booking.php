@@ -20,6 +20,7 @@ if (isset($_GET['message'])) {
 </head>
 </head>
 <body>
+<section class="bg-header">
     <div class="sidebar">
         <nav>
             <ul>
@@ -65,5 +66,6 @@ if (isset($_GET['message'])) {
             <input type="submit" name="book_activity" value="Book Activity" class="btn-submit">
         </form>
     </div>
+    </section>
 </body>
 </html>

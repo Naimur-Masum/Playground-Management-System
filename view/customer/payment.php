@@ -41,6 +41,7 @@ if (isset($_GET['error'])) {
 </head>
 
 <body>
+<section class="bg-header">
 <div class="sidebar">
         <nav>
             <ul>
@@ -110,5 +111,6 @@ if (isset($_GET['error'])) {
         </tbody>
     </table>
 </div>
+</section>
 </body>
 </html>

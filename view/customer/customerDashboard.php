@@ -16,6 +16,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'customer') {
     <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Bebas+Neue&display=swap" rel="stylesheet">
 </head>
 <body>
+<section class="bg-header">
     <section class="header">
         <nav>
             <div class="nav-links">
@@ -59,5 +60,6 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'customer') {
             </div>
         </div>
     </section>
+</section>
 </body>
 </html>
